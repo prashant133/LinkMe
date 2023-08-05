@@ -1,10 +1,13 @@
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:room_finder_app/fetures/auth/presentation/state/auth_state.dart';
+
 
 import '../../../../../core/common/Provider/is_dark_theme.dart';
-import '../../../../room/domain/entity/room_entity.dart';
-import '../../../../room/presentation/view_model/room_get_my_room_view_model.dart';
+import '../../../../auth/presentation/state/auth_state.dart';
+import '../../../../post/domain/entity/post_entity.dart';
+import '../../../../post/presentation/view_model/post_get_my_post__view_model.dart';
+
 import '../../../data/model/shake_sensor.dart';
 import '../../view_model/home_viewmodel.dart';
 
@@ -19,13 +22,7 @@ class _AccountViewState extends ConsumerState<AccountView> {
   late bool isDark = false;
   late ShakeSensor shakeSensor;
 
-  // List<RoomEntity> _filteredRooms = [];
 
-  // void _getMyRooms(List<RoomEntity> roomList) {
-  //   _filteredRooms = roomList
-  //       .where((room) => room.user == AuthState.userEntity!.id)
-  //       .toList();
-  // }
 
   @override
   void initState() {
@@ -47,10 +44,10 @@ class _AccountViewState extends ConsumerState<AccountView> {
 
   @override
   Widget build(BuildContext context) {
-    // all rooms
-    final roomState = ref.watch(roomGetMyRoomViewModelProvider);
+    // all posts
+    final postState = ref.watch(postGetMyPostViewModelProvider);
 
-    final List<RoomEntity> roomList = roomState.rooms;
+    final List<PostEntity> postList = postState.posts;
 
     final double width = MediaQuery.of(context).size.width;
     // final double height = MediaQuery.of(context).size.height;
@@ -130,9 +127,9 @@ class _AccountViewState extends ConsumerState<AccountView> {
                     crossAxisSpacing: 2,
                     mainAxisSpacing: 2,
                   ),
-                  itemCount: roomList.length,
+                  itemCount: postList.length,
                   itemBuilder: (context, index) {
-                    RoomEntity room = roomList[index];
+                    PostEntity post = postList[index];
                     return Card(
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12),
@@ -147,7 +144,7 @@ class _AccountViewState extends ConsumerState<AccountView> {
                             height: 0.02 * width,
                           ),
                           Text(
-                            room.description,
+                            post.description,
                             style: const TextStyle(
                               fontSize: 15,
                               color: Colors.red,
@@ -158,7 +155,7 @@ class _AccountViewState extends ConsumerState<AccountView> {
                             width: width * 0.4,
                             height: width * 0.22,
                             child: Image.network(
-                              'http://10.0.2.2:4000/uploads/${room.image}',
+                              'http://10.0.2.2:4000/uploads/${post.image}',
                               fit: BoxFit.fill,
                             ),
                           ),
@@ -180,7 +177,7 @@ class _AccountViewState extends ConsumerState<AccountView> {
                                       return AlertDialog(
                                         title: const Text('Delete post'),
                                         content: const Text(
-                                          'Are you sure you want to delete this Room?',
+                                          'Are you sure you want to delete this post?',
                                         ),
                                         actions: [
                                           TextButton(
@@ -193,27 +190,27 @@ class _AccountViewState extends ConsumerState<AccountView> {
                                             onPressed: () {
                                               ref
                                                   .read(
-                                                      roomGetMyRoomViewModelProvider
+                                                      postGetMyPostViewModelProvider
                                                           .notifier)
-                                                  .deleteRoom(
-                                                      context, room.roomId!);
+                                                  .deletePost(
+                                                      context, post.postId!);
 
                                               ref
                                                   .read(
-                                                      roomGetMyRoomViewModelProvider
+                                                      postGetMyPostViewModelProvider
                                                           .notifier)
-                                                  .getMyRooms();
+                                                  .getMyPosts();
                                               Navigator.pop(context);
                                               ScaffoldMessenger.of(context)
                                                   .showSnackBar(
                                                 const SnackBar(
                                                   content: Text(
-                                                      'Room deleted successfully'),
+                                                      'Post deleted successfully'),
                                                   backgroundColor: Colors.green,
                                                 ),
                                               );
                                             },
-                                            child: const Text('Delete'),
+                                            child: const Text('Post'),
                                           ),
                                         ],
                                       );

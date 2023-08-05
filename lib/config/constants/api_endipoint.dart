@@ -13,13 +13,13 @@ class ApiEndpoints {
   static const String signUp = "/users/signUp";
 
   //=======================Rooms Routes ================================
-  static const String getAllRooms = '/rooms/getAllRooms';
-  static const String addRooms = '/rooms/addRooms';
+  static const String getAllPosts = '/rooms/getAllRooms';
+  static const String addPosts = '/rooms/addRooms';
   static const String uploadImage = "/rooms/uploadImage/";
-  static const String getMyRooms = "/rooms/getMyRooms";
-  static String getRoomById(String roomId) => "/rooms/$roomId";
-  static String updateRoom(String roomId) => "/rooms/getMyRooms/$roomId";
-  static String deleteRoom(String roomId) => "/rooms/getMyRooms/$roomId";
+  static const String getMyPosts = "/rooms/getMyRooms";
+  static String getPostById(String roomId) => "/rooms/$roomId";
+  static String updatePost(String roomId) => "/rooms/getMyRooms/$roomId";
+  static String deletePost(String roomId) => "/rooms/getMyRooms/$roomId";
   // static const String imageUrl = "http://10.0.2.2:4000/uploads/";
   // static const String imageUrl = "http://192.168.101.11:4000/uploads/";
 }

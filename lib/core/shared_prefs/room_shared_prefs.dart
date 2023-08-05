@@ -3,22 +3,23 @@ import 'dart:convert';
 import 'package:dartz/dartz.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../../fetures/room/domain/entity/room_entity.dart';
+import '../../fetures/post/domain/entity/post_entity.dart';
+
 import '../failure/failure.dart';
 
 class RoomSharedPrefs {
   late SharedPreferences _sharedPreferences;
 
-  //set roomentity
-  Future<Either<Failure, bool>> setRoomEntity(RoomEntity room) async {
+  //set postentity
+  Future<Either<Failure, bool>> setPostEntity(PostEntity post) async {
     try {
       _sharedPreferences = await SharedPreferences.getInstance();
 
       // Convert UserEntity to JSON string
-      final roomJson = json.encode(room.toJson());
+      final postJson = json.encode(post.toJson());
 
       // Set the user JSON string in SharedPreferences
-      await _sharedPreferences.setString('room', roomJson);
+      await _sharedPreferences.setString('post', postJson);
 
       return right(true);
     } catch (e) {
@@ -26,20 +27,20 @@ class RoomSharedPrefs {
     }
   }
 
-  // get room entity
+  // get post entity
 
-  Future<Either<Failure, RoomEntity?>> geRoomEntity() async {
+  Future<Either<Failure, PostEntity?>> gePostEntity() async {
     try {
       _sharedPreferences = await SharedPreferences.getInstance();
 
       // Get the user JSON string from SharedPreferences
-      final roomJson = _sharedPreferences.getString('room');
+      final postJson = _sharedPreferences.getString('post');
 
-      if (roomJson != null) {
+      if (postJson != null) {
         // Parse the JSON string and create a UserEntity object
-        final roomMap = json.decode(roomJson);
-        final room = RoomEntity.fromJson(roomMap);
-        return right(room);
+        final postMap = json.decode(postJson);
+        final post = PostEntity.fromJson(postMap);
+        return right(post);
       } else {
         return right(null);
       }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:room_finder_app/config/router/app_route.dart';
-import 'package:room_finder_app/core/common/text/room_finder_style_text.dart';
+import 'package:room_finder_app/core/common/text/post_style_text.dart';
 import 'package:room_finder_app/core/common/text/style_font_20.dart';
 import 'package:room_finder_app/core/common/text/text.dart';
 import 'package:room_finder_app/fetures/auth/presentation/view_model/auth_view_model.dart';
