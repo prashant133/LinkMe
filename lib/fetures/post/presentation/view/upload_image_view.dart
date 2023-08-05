@@ -20,12 +20,7 @@ class UploadView extends ConsumerStatefulWidget {
 }
 
 class _UploadViewState extends ConsumerState<UploadView> {
-  // checkCameraPermission() async {
-  //   if (await Permission.camera.request().isRestricted ||
-  //       await Permission.camera.request().isDenied) {
-  //     await Permission.camera.request();
-  //   }
-  // }
+
 
   File? _img;
   // after add post
