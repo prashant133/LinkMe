@@ -23,7 +23,7 @@ class AppTheme {
       //elevatedButton theme
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
-            backgroundColor: const Color.fromARGB(255, 106, 24, 150),
+            backgroundColor: const Color.fromARGB(255, 76, 161, 114),
             foregroundColor: Colors.white),
       ),
 
@@ -39,7 +39,7 @@ class AppTheme {
       //TextTheme
       textTheme: const TextTheme(
         bodyMedium: TextStyle(
-          color: Color.fromARGB(255, 93, 89, 147),
+          color: Color.fromARGB(255, 76, 161, 114),
         ),
       ),
 
@@ -47,7 +47,7 @@ class AppTheme {
       inputDecorationTheme: const InputDecorationTheme(
         focusedBorder: OutlineInputBorder(
           borderSide: BorderSide(
-            color: Color.fromARGB(255, 255, 230, 0),
+            color: Color.fromARGB(255, 142, 180, 162),
             width: 3,
           ),
           borderRadius: BorderRadius.all(
@@ -60,15 +60,17 @@ class AppTheme {
           ),
           borderSide: BorderSide(
             width: 2,
-            color: Color.fromARGB(255, 255, 230, 0),
+            color: Color.fromARGB(255, 92, 110, 93),
           ),
         ),
         labelStyle: TextStyle(
-          color: Color.fromARGB(255, 0, 130, 237),
+          color: Color.fromARGB(255, 42, 80, 71),
         ),
         hintStyle: TextStyle(
-          color: Color.fromARGB(255, 0, 130, 237),
+          color: Color.fromARGB(255, 42, 80, 71),
         ),
+        prefixIconColor: Color.fromARGB(255, 142, 180, 162),
+        suffixIconColor: Color.fromARGB(255, 142, 180, 162),
       ),
     );
   }

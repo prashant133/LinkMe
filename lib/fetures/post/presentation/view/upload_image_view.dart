@@ -1,5 +1,3 @@
-
-
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -11,7 +9,6 @@ import '../../../../core/common/snackbar/snackbar.dart';
 import '../../domain/entity/post_entity.dart';
 import '../view_model/post_viewmodel.dart';
 
-
 class UploadView extends ConsumerStatefulWidget {
   const UploadView({super.key});
 
@@ -20,8 +17,6 @@ class UploadView extends ConsumerStatefulWidget {
 }
 
 class _UploadViewState extends ConsumerState<UploadView> {
-
-
   File? _img;
   // after add post
   String actualPostId = PostEntity.postId2;
@@ -68,7 +63,7 @@ class _UploadViewState extends ConsumerState<UploadView> {
         child: Column(
           children: [
             const Text(
-              "Select Image which  is less than 4MB ",
+              "Select Image  ",
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 20,
@@ -82,7 +77,7 @@ class _UploadViewState extends ConsumerState<UploadView> {
                 _browseImage(ref, ImageSource.gallery);
               },
               child: SizedBox(
-                width: double.infinity,
+                width: 300,
                 height: height * 0.5,
                 child: _img != null
                     ? Image.file(
@@ -90,7 +85,7 @@ class _UploadViewState extends ConsumerState<UploadView> {
                         fit: BoxFit.cover,
                       )
                     : Image.asset(
-                        'assets/images/2.png',
+                        'assets/images/photo.png',
                         fit: BoxFit.fill,
                       ),
               ),
