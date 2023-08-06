@@ -13,7 +13,7 @@ class SplashView extends ConsumerStatefulWidget {
 class _SplashViewState extends ConsumerState<SplashView> {
   @override
   void initState() {
-    Future.delayed(const Duration(seconds:5 ), () {});
+    Future.delayed(const Duration(seconds: 5), () {});
     ref.read(splashViewModelProvider.notifier).init(context);
     super.initState();
   }
@@ -30,10 +30,10 @@ class _SplashViewState extends ConsumerState<SplashView> {
                 SizedBox(
                   height: 200,
                   width: 200,
-                  child: Image.asset('assets/images/roomFinder.jpg'),
+                  child: Image.asset('assets/images/splash.png'),
                 ),
                 const Text(
-                  'Room Finding Application',
+                  'LinkMe',
                   style: TextStyle(
                     fontSize: 25,
                   ),
@@ -49,7 +49,7 @@ class _SplashViewState extends ConsumerState<SplashView> {
             bottom: 10,
             left: MediaQuery.of(context).size.width / 4,
             child: const Text(
-              'Developed by: Sudip Singh Khati',
+              'Developed by: Prashant Deshar',
               style: TextStyle(fontSize: 15),
             ),
           ),

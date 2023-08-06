@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:room_finder_app/config/router/app_route.dart';
-import 'package:room_finder_app/core/common/text/post_style_text.dart';
-import 'package:room_finder_app/core/common/text/style_font_20.dart';
 import 'package:room_finder_app/core/common/text/text.dart';
 import 'package:room_finder_app/fetures/auth/presentation/view_model/auth_view_model.dart';
 
@@ -16,8 +14,8 @@ class LogIn extends ConsumerStatefulWidget {
 }
 
 class _LogInState extends ConsumerState<LogIn> {
-  final _emailController = TextEditingController(text: 'sudip@gmail.com');
-  final _passwordController = TextEditingController(text: 'sudip123');
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
   bool isObscure = true;
 
   @override
@@ -38,71 +36,43 @@ class _LogInState extends ConsumerState<LogIn> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              Container(
-                width: width * 1,
-                height: 200,
-                decoration: const BoxDecoration(
-                  color: Color.fromRGBO(51, 0, 255, 0.45),
-                  borderRadius: BorderRadius.only(
-                      bottomLeft: Radius.circular(30),
-                      bottomRight: Radius.circular(30)),
-                ),
-                child: const Align(
-                  alignment: topCenter,
-                  child: Column(
-                    children: [
-                      StyleText(),
-                      TextStyle1(
-                        text: 'Solution To The Chaos Of',
-                      ),
-                      TextStyle1(
-                        text: 'Finding Rooms',
-                      ),
-                    ],
-                  ),
-                ),
+              Image.asset(
+                'assets/images/splash.png', // Replace with the actual image asset path
+                width: width, // Set the width as needed
               ),
               SizedBox(
                 width: width * 1,
                 child: Column(
                   children: [
-                    const Align(
-                      alignment: topCenter,
-                      child: SizedBox(
-                        child: TextStyle1(
-                          text: 'Sign In to Continue',
-                        ),
-                      ),
-                    ),
                     Form(
                       key: _key,
                       child: Column(
                         children: [
-                          Padding(
-                            padding: const EdgeInsets.all(20.0),
-                            child: SizedBox(
-                              width: width * 0.9,
-                              child: TextFormField(
-                                key: const ValueKey('Email'),
-                                controller: _emailController,
-                                decoration: InputDecoration(
-                                  labelText: 'Email',
-                                  hintText: "Enter Email Adress",
-                                  prefixIcon: const Icon(
-                                    Icons.person,
-                                  ),
-                                  border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(30),
-                                  ),
+                          SizedBox(
+                            width: width * 0.9,
+                            child: TextFormField(
+                              key: const ValueKey('Email'),
+                              controller: _emailController,
+                              decoration: InputDecoration(
+                                labelText: 'Email',
+                                hintText: "Enter Email Address",
+                                prefixIcon: const Icon(
+                                  Icons.person,
                                 ),
-                                validator: (value) {
-                                  if (value!.isEmpty) {
-                                    return 'Please enter Email';
-                                  }
-                                  return null;
-                                },
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(30),
+                                ),
                               ),
+                              validator: (value) {
+                                if (value!.isEmpty) {
+                                  return 'Please enter Email';
+                                }
+                                return null;
+                              },
                             ),
+                          ),
+                          const SizedBox(
+                            height: 15,
                           ),
                           SizedBox(
                             width: width * 0.9,
@@ -145,17 +115,19 @@ class _LogInState extends ConsumerState<LogIn> {
                             child: SizedBox(
                               width: width * 0.5,
                               child: ElevatedButton(
-                                  onPressed: () async {
-                                    if (_key.currentState!.validate()) {
-                                      await ref
-                                          .read(authViewModelProvider.notifier)
-                                          .loginUser(
-                                              context,
-                                              _emailController.text,
-                                              _passwordController.text);
-                                    }
-                                  },
-                                  child: const MakingText('Sign In')),
+                                onPressed: () async {
+                                  if (_key.currentState!.validate()) {
+                                    await ref
+                                        .read(authViewModelProvider.notifier)
+                                        .loginUser(
+                                          context,
+                                          _emailController.text,
+                                          _passwordController.text,
+                                        );
+                                  }
+                                },
+                                child: const MakingText('Sign In'),
+                              ),
                             ),
                           ),
                           Padding(
@@ -167,17 +139,19 @@ class _LogInState extends ConsumerState<LogIn> {
                                   Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                      const MakingText("Haven't SignIn Yet"),
+                                      const MakingText("Haven't Signed Up Yet"),
                                       TextButton(
                                         onPressed: () {
                                           Navigator.pushNamed(
-                                              context, AppRoute.singUpRoute);
+                                            context,
+                                            AppRoute.singUpRoute,
+                                          );
                                         },
                                         child: const MakingText('Sign Up'),
                                       ),
                                       const MakingText('Here')
                                     ],
-                                  )
+                                  ),
                                 ],
                               ),
                             ),

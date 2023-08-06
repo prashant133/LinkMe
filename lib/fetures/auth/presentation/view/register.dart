@@ -16,10 +16,10 @@ class Register extends ConsumerStatefulWidget {
 
 class _RegisterState extends ConsumerState<Register> {
   final _key = GlobalKey<FormState>();
-  final _fullNameController = TextEditingController(text: "Sudip Singh Khati");
+  final _fullNameController = TextEditingController();
 
-  final _emailController = TextEditingController(text: "sudip@gmail.com");
-  final _passwordController = TextEditingController(text: "sudip123");
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
   bool isObscure = true;
 
   @override
@@ -37,139 +37,155 @@ class _RegisterState extends ConsumerState<Register> {
     return Scaffold(
       // backgroundColor: const Color(0xFFA38CFE),
       appBar: AppBar(
-        title: const TextStyle1(text: 'Registration'),
+        title: const TextStyle1(text: 'Register', colors: Colors.green),
         centerTitle: true,
         elevation: 0,
+        backgroundColor: Colors.transparent,
         // backgroundColor: const Color.fromRGBO(51, 0, 255, 0.45),
       ),
-      body: Center(
-        child: Form(
-          key: _key,
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container(
-                padding: const EdgeInsets.all(6),
-                width: width * double.infinity,
-                child: TextFormField(
-                  controller: _fullNameController,
-                  decoration: InputDecoration(
-                    labelText: 'Full Name',
-                    hintText: 'Full  Name',
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(30),
-                    ),
-                  ),
-                  validator: ((value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Please enter your name';
-                    }
-                    return null;
-                  }),
+      body: SingleChildScrollView(
+        child: Center(
+          child: Form(
+            key: _key,
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Image.asset(
+                  'assets/images/splash.png',
+                  width: width * 0.5,
                 ),
-              ),
-              Container(
-                padding: const EdgeInsets.all(6),
-                width: width * 1,
-                child: TextFormField(
-                  controller: _emailController,
-                  keyboardType: TextInputType.emailAddress,
-                  decoration: InputDecoration(
-                    labelText: 'Email',
-                    hintText: 'Email',
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(30),
-                    ),
-                  ),
-                  validator: ((value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Please enter your email address';
-                    }
-                    return null;
-                  }),
-                ),
-              ),
-              Container(
-                padding: const EdgeInsets.all(6),
-                width: width * 1,
-                child: TextFormField(
-                  controller: _passwordController,
-                  obscureText: isObscure,
-                  decoration: InputDecoration(
-                    labelText: 'Password',
-                    hintText: 'Password',
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(30),
-                    ),
-                    suffixIcon: IconButton(
-                      onPressed: () {
-                        setState(() {
-                          isObscure = !isObscure;
-                        });
-                      },
-                      icon: Icon(
-                        isObscure ? Icons.visibility : Icons.visibility_off,
+                Container(
+                  padding: const EdgeInsets.all(6),
+                  width: width * double.infinity,
+                  child: TextFormField(
+                    controller: _fullNameController,
+                    decoration: InputDecoration(
+                      labelText: 'Full Name',
+                      hintText: 'Full  Name',
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                      prefixIcon: const Icon(
+                        Icons.person,
                       ),
                     ),
-                  ),
-                  validator: ((value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Please enter your password';
-                    }
-                    return null;
-                  }),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(6),
-                child: SizedBox(
-                  width: width * 0.6,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      if (_key.currentState!.validate()) {
-                        var user = UserEntity(
-                          fullName: _fullNameController.text,
-                          email: _emailController.text,
-                          password: _passwordController.text,
-                        );
-
-                        ref
-                            .read(authViewModelProvider.notifier)
-                            .registerUser(context, user);
+                    validator: ((value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter your name';
                       }
-
-                      if (authState.error != null) {
-                        showSnackBar(
-                          context: context,
-                          message: authState.error.toString(),
-                        );
-                      } else {
-                      showSnackBar(
-                        context: context,
-                        message: 'Registered successfully',
-                        color: Colors.green,
-                      );
-                      }
-                    },
-                    child: const Text('Register'),
+                      return null;
+                    }),
                   ),
                 ),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const MakingText("Already Have An Account"),
-                  TextButton(
-                    onPressed: () {
-                      Navigator.popAndPushNamed(context, '/');
-                    },
-                    child: const MakingText('Sign In'),
+                Container(
+                  padding: const EdgeInsets.all(6),
+                  width: width * 1,
+                  child: TextFormField(
+                    controller: _emailController,
+                    keyboardType: TextInputType.emailAddress,
+                    decoration: InputDecoration(
+                      labelText: 'Email',
+                      hintText: 'Email',
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                      prefixIcon: const Icon(
+                        Icons.email,
+                      ),
+                    ),
+                    validator: ((value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter your email address';
+                      }
+                      return null;
+                    }),
                   ),
-                  const MakingText('Here'),
-                ],
-              ),
-            ],
+                ),
+                Container(
+                  padding: const EdgeInsets.all(6),
+                  width: width * 1,
+                  child: TextFormField(
+                    controller: _passwordController,
+                    obscureText: isObscure,
+                    decoration: InputDecoration(
+                      labelText: 'Password',
+                      hintText: 'Password',
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                      suffixIcon: IconButton(
+                        onPressed: () {
+                          setState(() {
+                            isObscure = !isObscure;
+                          });
+                        },
+                        icon: Icon(
+                          isObscure ? Icons.visibility : Icons.visibility_off,
+                        ),
+                      ),
+                      prefixIcon: const Icon(
+                        Icons.key,
+                      ),
+                    ),
+                    validator: ((value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter your password';
+                      }
+                      return null;
+                    }),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(6),
+                  child: SizedBox(
+                    width: width * 0.6,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        if (_key.currentState!.validate()) {
+                          var user = UserEntity(
+                            fullName: _fullNameController.text,
+                            email: _emailController.text,
+                            password: _passwordController.text,
+                          );
+
+                          ref
+                              .read(authViewModelProvider.notifier)
+                              .registerUser(context, user);
+                        }
+
+                        if (authState.error != null) {
+                          showSnackBar(
+                            context: context,
+                            message: authState.error.toString(),
+                          );
+                        } else {
+                          showSnackBar(
+                            context: context,
+                            message: 'Registered successfully',
+                            color: Colors.green,
+                          );
+                        }
+                      },
+                      child: const Text('Register'),
+                    ),
+                  ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const MakingText("Already Have An Account"),
+                    TextButton(
+                      onPressed: () {
+                        Navigator.popAndPushNamed(context, '/');
+                      },
+                      child: const MakingText('Sign In'),
+                    ),
+                    const MakingText('Here'),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),

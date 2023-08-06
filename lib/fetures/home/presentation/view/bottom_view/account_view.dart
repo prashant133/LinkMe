@@ -210,7 +210,7 @@ class _AccountViewState extends ConsumerState<AccountView> {
                                                 ),
                                               );
                                             },
-                                            child: const Text('Post'),
+                                            child: const Text('Delete'),
                                           ),
                                         ],
                                       );
