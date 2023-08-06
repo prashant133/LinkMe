@@ -1,10 +1,10 @@
-import 'package:room_finder_app/fetures/auth/presentation/view/login.dart';
-import 'package:room_finder_app/fetures/auth/presentation/view/register.dart';
-import 'package:room_finder_app/fetures/home/presentation/view/dashboard.dart';
-import 'package:room_finder_app/fetures/room/presentation/view/add_room_view.dart';
-import 'package:room_finder_app/fetures/room/presentation/view/update_rooms.dart';
-import 'package:room_finder_app/fetures/room/presentation/view/upload_image_view.dart';
-import 'package:room_finder_app/fetures/splash/presentation/view/splash_view.dart';
+
+
+import '../../fetures/auth/presentation/view/login.dart';
+import '../../fetures/auth/presentation/view/register.dart';
+import '../../fetures/home/presentation/view/dashboard.dart';
+import '../../fetures/post/presentation/view/upload_image_view.dart';
+import '../../fetures/splash/presentation/view/splash_view.dart';
 
 class AppRoute {
   AppRoute._();

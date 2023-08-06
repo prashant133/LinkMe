@@ -1,11 +1,14 @@
+
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:room_finder_app/fetures/auth/domain/entity/user_entity.dart';
-import 'package:room_finder_app/fetures/auth/presentation/state/auth_state.dart';
-import 'package:room_finder_app/fetures/home/presentation/view/bottom_view/account_view.dart';
-import 'package:room_finder_app/fetures/home/presentation/view/bottom_view/home_view.dart';
-import 'package:room_finder_app/fetures/room/presentation/view/add_room_view.dart';
-import 'package:room_finder_app/fetures/room/presentation/view/update_rooms.dart';
+
+import '../../../auth/domain/entity/user_entity.dart';
+import '../../../auth/presentation/state/auth_state.dart';
+import '../../../post/presentation/view/add_post_view.dart';
+
+import 'bottom_view/account_view.dart';
+import 'bottom_view/home_view.dart';
 
 class DashBoard extends ConsumerStatefulWidget {
   final int? index;
@@ -19,7 +22,7 @@ class _DashBoardState extends ConsumerState<DashBoard> {
   int _selectedIndex = 0;
   List<Widget> lstButtonScreen = [
     const HomeView(),
-    const AddRooms(),
+    const AddPosts(),
     const AccountView(),
     
   ];

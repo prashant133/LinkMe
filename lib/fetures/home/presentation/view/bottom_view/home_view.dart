@@ -1,10 +1,14 @@
+
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../../../../core/common/text/room_finder_style_text.dart';
+import '../../../../../core/common/text/post_style_text.dart';
 import '../../../../auth/presentation/state/auth_state.dart';
-import '../../../../room/domain/entity/room_entity.dart';
-import '../../../../room/presentation/view_model/room_viewmodel.dart';
+import '../../../../post/domain/entity/post_entity.dart';
+import '../../../../post/presentation/view_model/post_viewmodel.dart';
+
+
 
 class HomeView extends ConsumerStatefulWidget {
   const HomeView({super.key});
@@ -16,9 +20,9 @@ class HomeView extends ConsumerStatefulWidget {
 class _HomeViewState extends ConsumerState<HomeView> {
   @override
   Widget build(BuildContext context) {
-    final roomState = ref.watch(roomViewModelProvider);
+    final postState = ref.watch(postViewModelProvider);
 
-    final List<RoomEntity> roomList = roomState.rooms;
+    final List<PostEntity> postList = postState.posts;
     final double width = MediaQuery.of(context).size.width;
     final double height = MediaQuery.of(context).size.height;
     return Scaffold(
@@ -71,11 +75,11 @@ class _HomeViewState extends ConsumerState<HomeView> {
               SizedBox(
                 height: height * 0.005,
               ),
-              if (roomState.isLoading) ...{
+              if (postState.isLoading) ...{
                 const Center(child: CircularProgressIndicator()),
-              } else if (roomState.error != null) ...{
-                Text(roomState.error.toString()),
-              } else if (roomState.rooms.isEmpty) ...{
+              } else if (postState.error != null) ...{
+                Text(postState.error.toString()),
+              } else if (postState.posts.isEmpty) ...{
                 const Center(child: Text('No Post Found')),
               } else ...{
                 GestureDetector(
@@ -83,9 +87,9 @@ class _HomeViewState extends ConsumerState<HomeView> {
                   child: ListView.builder(
                     physics: const NeverScrollableScrollPhysics(),
                     shrinkWrap: true,
-                    itemCount: roomList.length,
+                    itemCount: postList.length,
                     itemBuilder: (context, index) {
-                      RoomEntity room = roomList[index];
+                      PostEntity post = postList[index];
                       return Card(
                         elevation: 4.0,
                         child: SizedBox(
@@ -134,7 +138,7 @@ class _HomeViewState extends ConsumerState<HomeView> {
                                     // Adding spacing above the description text
                                     const SizedBox(height: 60),
                                     Text(
-                                      room.description,
+                                      post.description,
                                       style: const TextStyle(fontSize: 16),
                                     ),
                                     const SizedBox(
@@ -144,7 +148,7 @@ class _HomeViewState extends ConsumerState<HomeView> {
                                       aspectRatio: 3 /
                                           2, // Adjust the aspect ratio for a shorter image
                                       child: Image.network(
-                                        'http://10.0.2.2:4000/uploads/${room.image}',
+                                        'http://10.0.2.2:4000/uploads/${post.image}',
                                         fit: BoxFit.cover,
                                       ),
                                     ),
