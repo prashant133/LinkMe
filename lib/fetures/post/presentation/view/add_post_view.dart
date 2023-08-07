@@ -49,15 +49,16 @@ class _AddPostsState extends ConsumerState<AddPosts> {
                         controller: _descrpitionController,
                         validator: (value) {
                           if (value!.isEmpty) {
-                            return 'Please write the descrpition of the post';
+                            return 'Please write the description of the post';
                           }
                           return null;
                         },
                         maxLines: 3,
                         decoration: const InputDecoration(
-                          labelText: "Descrpition",
-                          hintText: "Write descrptions about the post",
+                          labelText: "Description",
+                          hintText: "Write descriptions about the post",
                           border: OutlineInputBorder(),
+                          prefixIcon: Icon(Icons.description),
                         ),
                       ),
                       gap,

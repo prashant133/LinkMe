@@ -12,13 +12,13 @@ class ApiEndpoints {
   static const String signIn = "/users/signIn";
   static const String signUp = "/users/signUp";
 
-  //=======================Rooms Routes ================================
-  static const String getAllPosts = '/rooms/getAllRooms';
-  static const String addPosts = '/rooms/addRooms';
-  static const String uploadImage = "/rooms/uploadImage/";
-  static const String getMyPosts = "/rooms/getMyRooms";
-  static String getPostById(String postId) => "/rooms/$postId";
-  static String updatePost(String postId) => "/rooms/getMyRooms/$postId";
-  static String deletePost(String postId) => "/rooms/getMyRooms/$postId";
+  //=======================Posts Routes ================================
+  static const String getAllPosts = '/posts/getAllPosts';
+  static const String addPosts = '/posts/addPosts';
+  static const String uploadImage = "/posts/uploadImage/";
+  static const String getMyPosts = "/posts/getMyPosts";
+  static String getPostById(String postId) => "/posts/$postId";
+  static String updatePost(String postId) => "/posts/getMyPosts/$postId";
+  static String deletePost(String postId) => "/posts/getMyPosts/$postId";
  
 }
