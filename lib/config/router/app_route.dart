@@ -15,7 +15,7 @@ class AppRoute {
   static const String signInRoute = '/signIn';
   static const String singUpRoute = '/signUp';
   static const String uploadViews = '/upload';
-  static const String updateRoom = '/update';
+  static const String updatePost = '/update';
 
   static getApplicationRoute() {
     return {
@@ -24,7 +24,7 @@ class AppRoute {
       singUpRoute: (context) => const Register(),
       dashboardRoute: (context) => const DashBoard(),
       uploadViews: (context) => const UploadView(),
-      // updateRoom: (context) => const UpdateView(),
+      
     };
   }
 }

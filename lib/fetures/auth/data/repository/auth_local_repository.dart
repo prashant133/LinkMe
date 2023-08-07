@@ -1,8 +1,9 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:room_finder_app/fetures/auth/domain/entity/user_entity.dart';
+
 
 import '../../../../core/failure/failure.dart';
+import '../../domain/entity/user_entity.dart';
 import '../../domain/repository/auth_repository.dart';
 import '../data_source/auth_local_data_source.dart';
 

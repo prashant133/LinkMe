@@ -1,10 +1,11 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:room_finder_app/core/failure/failure.dart';
-import 'package:room_finder_app/fetures/auth/data/model/auth_hive_model.dart';
-import 'package:room_finder_app/fetures/auth/domain/entity/user_entity.dart';
 
+
+import '../../../../core/failure/failure.dart';
 import '../../../../core/network/local/hive_service.dart';
+import '../../domain/entity/user_entity.dart';
+import '../model/auth_hive_model.dart';
 
 final authLocalDataSourceProvider = Provider((ref) => AuthLocalDataSource(
       ref.read(hiveServiceProvider),

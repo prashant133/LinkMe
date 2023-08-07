@@ -1,10 +1,11 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:jwt_decoder/jwt_decoder.dart';
-import 'package:room_finder_app/config/router/app_route.dart';
-import 'package:room_finder_app/fetures/auth/domain/entity/user_entity.dart';
 
+
+import '../../../../config/router/app_route.dart';
 import '../../../../core/shared_prefs/user_shared_prefs.dart';
+import '../../../auth/domain/entity/user_entity.dart';
 import '../../../auth/presentation/state/auth_state.dart';
 
 final splashViewModelProvider = StateNotifierProvider<SplashViewModel, void>(

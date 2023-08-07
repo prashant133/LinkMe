@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:room_finder_app/core/common/snackbar/snackbar.dart';
+
 
 import '../../../../config/router/app_route.dart';
+import '../../../../core/common/snackbar/snackbar.dart';
 import '../../domain/use_case/auth_usecase.dart';
 import '../state/auth_state.dart';
 

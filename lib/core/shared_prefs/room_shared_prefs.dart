@@ -7,7 +7,7 @@ import '../../fetures/post/domain/entity/post_entity.dart';
 
 import '../failure/failure.dart';
 
-class RoomSharedPrefs {
+class PostSharedPrefs {
   late SharedPreferences _sharedPreferences;
 
   //set postentity
