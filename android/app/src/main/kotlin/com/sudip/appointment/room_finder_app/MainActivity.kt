@@ -1,4 +1,4 @@
-package com.sudip.appointment.room_finder_app
+package com.prashant.appointment.LinkMe
 
 import io.flutter.embedding.android.FlutterActivity
 
