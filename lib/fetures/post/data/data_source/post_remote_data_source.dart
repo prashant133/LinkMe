@@ -46,11 +46,9 @@ class PostRemoteDataSource {
       Response response = await dio.post(
         ApiEndpoints.addPosts,
         data: {
-          "title": post.title,
-          "location": post.location,
+          
           "description": post.description,
-          "phoneNumber": post.phoneNumber,
-          "price": post.price,
+          
           "image": post.image,
         },
         options: Options(
@@ -168,10 +166,9 @@ class PostRemoteDataSource {
       var response = await dio.put(
         ApiEndpoints.updatePost(postId),
         data: {
-          "title": post.title,
-          "price": post.price,
+          
           "description": post.description,
-          "location": post.location,
+          
           "image": post.image,
         },
         options: Options(

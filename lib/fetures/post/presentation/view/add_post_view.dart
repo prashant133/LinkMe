@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -15,19 +13,11 @@ class AddPosts extends ConsumerStatefulWidget {
 }
 
 class _AddPostsState extends ConsumerState<AddPosts> {
-  final _titleController = TextEditingController();
   final _descrpitionController = TextEditingController();
-  final _locationController = TextEditingController();
-  final _priceController = TextEditingController();
-  final _phoneNumberController = TextEditingController();
 
   @override
   void dispose() {
-    _titleController.dispose();
     _descrpitionController.dispose();
-    _priceController.dispose();
-    _phoneNumberController.dispose();
-    _locationController.dispose();
 
     super.dispose();
   }
@@ -54,35 +44,6 @@ class _AddPostsState extends ConsumerState<AddPosts> {
                   key: _key,
                   child: Column(
                     children: [
-                      TextFormField(
-                        controller: _titleController,
-                        decoration: const InputDecoration(
-                          labelText: "Title ",
-                          hintText: "Enter the Title or the post ",
-                          border: OutlineInputBorder(),
-                        ),
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return 'Please wirte the title of the post ';
-                          }
-                          return null;
-                        },
-                      ),
-                      gap,
-                      TextFormField(
-                        controller: _phoneNumberController,
-                        decoration: const InputDecoration(
-                          labelText: "Phone Number",
-                          hintText: "Enter your Phone Number",
-                          border: OutlineInputBorder(),
-                        ),
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return 'Please wirte  your contact number ';
-                          }
-                          return null;
-                        },
-                      ),
                       gap,
                       TextFormField(
                         controller: _descrpitionController,
@@ -100,36 +61,6 @@ class _AddPostsState extends ConsumerState<AddPosts> {
                         ),
                       ),
                       gap,
-                      TextFormField(
-                        controller: _locationController,
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return 'Please insert the location of the post';
-                          }
-                          return null;
-                        },
-                        decoration: const InputDecoration(
-                          labelText: "Location",
-                          hintText: "Enter the location ",
-                          border: OutlineInputBorder(),
-                        ),
-                      ),
-                      gap,
-                      TextFormField(
-                        controller: _priceController,
-                        keyboardType: TextInputType.number,
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return 'Please write the price of the post';
-                          }
-                          return null;
-                        },
-                        decoration: const InputDecoration(
-                          labelText: "Price",
-                          hintText: "Put the price of your post",
-                          border: OutlineInputBorder(),
-                        ),
-                      ),
                       Container(
                         width: width * 0.55,
                         padding: const EdgeInsets.only(top: 20),
@@ -137,11 +68,7 @@ class _AddPostsState extends ConsumerState<AddPosts> {
                           onPressed: () {
                             if (_key.currentState!.validate()) {
                               PostEntity post = PostEntity(
-                                title: _titleController.text,
-                                location: _locationController.text,
                                 description: _descrpitionController.text,
-                                phoneNumber: int.parse(_phoneNumberController.text),
-                                price: int.parse(_priceController.text),
                                 user: '',
                               );
                               ref
