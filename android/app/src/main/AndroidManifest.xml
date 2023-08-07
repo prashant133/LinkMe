@@ -1,9 +1,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.sudip.appointment.room_finder_app">
+    package="com.prashant.appointment.LinkMe">
         <uses-permission android:name="android.permission.CAMERA"/>
         <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
    <application
-        android:label="room_finder_app"
+        android:label="LinkMe"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

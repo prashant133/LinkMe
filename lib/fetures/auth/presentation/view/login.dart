@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:room_finder_app/config/router/app_route.dart';
-import 'package:room_finder_app/core/common/text/text.dart';
-import 'package:room_finder_app/fetures/auth/presentation/view_model/auth_view_model.dart';
+
+import '../../../../config/router/app_route.dart';
+import '../../../../core/common/text/text.dart';
+import '../view_model/auth_view_model.dart';
+
 
 const topCenter = Alignment.topCenter;
 

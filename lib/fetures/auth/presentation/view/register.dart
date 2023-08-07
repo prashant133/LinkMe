@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:room_finder_app/core/common/text/style_font_20.dart';
+
 
 import '../../../../core/common/snackbar/snackbar.dart';
+import '../../../../core/common/text/style_font_20.dart';
 import '../../../../core/common/text/text.dart';
 import '../../domain/entity/user_entity.dart';
 import '../view_model/auth_view_model.dart';

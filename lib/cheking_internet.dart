@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:room_finder_app/core/common/Provider/internet_connection.dart';
+
+import 'core/common/Provider/internet_connection.dart';
+
 
 class InternetConnection extends StatelessWidget {
   const InternetConnection({super.key});

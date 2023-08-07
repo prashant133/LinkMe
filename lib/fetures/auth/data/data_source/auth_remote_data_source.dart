@@ -1,12 +1,14 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:room_finder_app/config/constants/api_endipoint.dart';
-import 'package:room_finder_app/core/failure/failure.dart';
-import 'package:room_finder_app/core/network/remote/http_service.dart';
-import 'package:room_finder_app/core/shared_prefs/user_shared_prefs.dart';
-import 'package:room_finder_app/fetures/auth/domain/entity/user_entity.dart';
-import 'package:room_finder_app/fetures/auth/presentation/state/auth_state.dart';
+
+import '../../../../config/constants/api_endipoint.dart';
+import '../../../../core/failure/failure.dart';
+import '../../../../core/network/remote/http_service.dart';
+import '../../../../core/shared_prefs/user_shared_prefs.dart';
+import '../../domain/entity/user_entity.dart';
+import '../../presentation/state/auth_state.dart';
+
 
 final authRemoteDataSourceProvider = Provider(
   (ref) => AuthRemoteDataSource(

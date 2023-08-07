@@ -1,6 +1,6 @@
 {
-    "name": "room_finder_app",
-    "short_name": "room_finder_app",
+    "name": "LinkMe",
+    "short_name": "LinkMe",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

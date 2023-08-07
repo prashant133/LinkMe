@@ -1,8 +1,9 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:room_finder_app/fetures/auth/domain/entity/user_entity.dart';
+
 
 import '../../../../core/failure/failure.dart';
+import '../entity/user_entity.dart';
 import '../repository/auth_repository.dart';
 
 final authUseCaseProvider = Provider((ref) {

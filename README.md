@@ -1,4 +1,4 @@
-# room_finder_app
+# LinkMe
 
 A new Flutter project.
 

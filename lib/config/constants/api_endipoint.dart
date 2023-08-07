@@ -20,6 +20,5 @@ class ApiEndpoints {
   static String getPostById(String postId) => "/rooms/$postId";
   static String updatePost(String postId) => "/rooms/getMyRooms/$postId";
   static String deletePost(String postId) => "/rooms/getMyRooms/$postId";
-  // static const String imageUrl = "http://10.0.2.2:4000/uploads/";
-  // static const String imageUrl = "http://192.168.101.11:4000/uploads/";
+ 
 }

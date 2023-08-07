@@ -1,6 +1,8 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:json_annotation/json_annotation.dart';
-import 'package:room_finder_app/fetures/auth/domain/entity/user_entity.dart';
+
+import '../../domain/entity/user_entity.dart';
+
 
 part 'auth_api_model.g.dart';
 
