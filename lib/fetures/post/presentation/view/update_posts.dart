@@ -18,32 +18,26 @@ class UpdateView extends ConsumerStatefulWidget {
 }
 
 class _UploadViewState extends ConsumerState<UpdateView> {
-  late TextEditingController _titleController;
+  
   late TextEditingController _descriptionController;
-  late TextEditingController _priceController;
-  late TextEditingController _locationController;
-  late TextEditingController _phoneNumberController;
+
 
   @override
   void initState() {
-    _titleController = TextEditingController(text: widget.post.title);
+   
     _descriptionController =
         TextEditingController(text: widget.post.description);
-    _locationController = TextEditingController(text: widget.post.location);
-    _phoneNumberController =
-        TextEditingController(text: widget.post.phoneNumber.toString());
-    _priceController =
-        TextEditingController(text: widget.post.price.toString());
+    
+   
+    
     super.initState();
   }
 
   @override
   void dispose() {
-    _titleController.dispose();
+    
     _descriptionController.dispose();
-    _locationController.dispose();
-    _phoneNumberController.dispose();
-    _priceController.dispose();
+    
     super.dispose();
   }
 
@@ -65,66 +59,10 @@ class _UploadViewState extends ConsumerState<UpdateView> {
               padding: const EdgeInsets.all(12),
               child: Column(
                 children: [
-                  gap,
-                  TextFormField(
-                    controller: _titleController,
-                    decoration: const InputDecoration(
-                      labelText: "Title",
-                      hintText: "Write the title of the Post",
-                      border: OutlineInputBorder(),
-                    ),
-                    validator: (value) {
-                      if (value!.isEmpty) {
-                        return "Please insert the title of the post";
-                      }
-                      return null;
-                    },
-                  ),
-                  gap,
-                  TextFormField(
-                    controller: _locationController,
-                    decoration: const InputDecoration(
-                      labelText: "Location",
-                      hintText: "Enter the location of the post",
-                      border: OutlineInputBorder(),
-                    ),
-                    validator: (value) {
-                      if (value!.isEmpty) {
-                        return "Please enter the location of a Post";
-                      }
-                      return null;
-                    },
-                  ),
-                  gap,
-                  TextFormField(
-                    controller: _priceController,
-                    decoration: const InputDecoration(
-                      labelText: "Price",
-                      hintText: "Enter the Price of the posts",
-                      border: OutlineInputBorder(),
-                    ),
-                    validator: (value) {
-                      if (value!.isEmpty) {
-                        return "Please give the price of the posts";
-                      }
-                      return null;
-                    },
-                  ),
-                  gap,
-                  TextFormField(
-                    controller: _phoneNumberController,
-                    decoration: const InputDecoration(
-                      labelText: "Phone Number",
-                      hintText: "write your phone number",
-                      border: OutlineInputBorder(),
-                    ),
-                    validator: (value) {
-                      if (value!.isEmpty) {
-                        return "Please Write your Phone Number";
-                      }
-                      return null;
-                    },
-                  ),
+                 
+                  
+                
+                
                   gap,
                   TextFormField(
                     controller: _descriptionController,
@@ -146,11 +84,9 @@ class _UploadViewState extends ConsumerState<UpdateView> {
                       onPressed: () {
                         if (_key.currentState!.validate()) {
                           PostEntity post = PostEntity(
-                            title: _titleController.text,
-                            location: _locationController.text,
+                            
                             description: _descriptionController.text,
-                            price: int.parse(_priceController.text),
-                            phoneNumber: int.parse(_phoneNumberController.text),
+                          
                             user: '',
                           );
                           ref
